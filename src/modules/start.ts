@@ -17,12 +17,18 @@ composer
       return;
     }
     if (ctx.chat.type != "private") return;
-    await ctx.reply(ctx.t("start-msg", { user: ctx.from!.first_name }), {
+    // await ctx.reply(ctx.t("start-msg", { user: ctx.from!.first_name }), {
+    await ctx.reply(`
+For Flipkart  And Amazon Earning Offers Deals 
+
+Click the below button to join the channel`, {
       parse_mode: "HTML",
       reply_markup: new InlineKeyboard()
-        .text(ctx.t("usage-help"), "helper")
-        .text("Language 🌐", "setLang").row()
-        .url(ctx.t("updates"), "https://t.me/BotzHub"),
+      .url("Flipkart", "https://t.me/+zA-n2nI6lDYxYzEx")
+      .url("Amazon", "https://t.me/+BQRseQiOFxw4Nzdl"),
+        // .text(ctx.t("usage-help"), "helper")
+        // .text("Language 🌐", "setLang").row()
+        // .url(ctx.t("updates"), "https://t.me/BotzHub"),
       disable_web_page_preview: true,
     });
     await addUser(ctx.from!.id);
