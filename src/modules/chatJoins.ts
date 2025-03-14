@@ -60,8 +60,10 @@ composer.on("chat_join_request", async (ctx) => {
     await ctx.api.sendMessage(
       update.user_chat_id,
       welcome,
+      {
       reply_markup: new InlineKeyboard().url("Flipkart", "https://t.me/+zA-n2nI6lDYxYzEx").url("Amazon", "https://t.me/+BQRseQiOFxw4Nzdl"),
-    );
+  }
+);
   } catch (error) {
     if (error.error_code == 403) return;
     console.log("Error while sending a message: ", error.message);
