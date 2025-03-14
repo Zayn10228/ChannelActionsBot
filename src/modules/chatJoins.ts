@@ -2,7 +2,7 @@ import { MyContext } from "../core/types.ts";
 import { getSettings } from "../database/welcomeDb.ts";
 import helperClass from "../helpers/baseHelpers.ts";
 
-import { Composer } from "grammy/mod.ts";
+import { Composer, InlineKeyboard } from "grammy/mod.ts";
 
 const composer = new Composer<MyContext>();
 
@@ -45,7 +45,7 @@ composer.on("chat_join_request", async (ctx) => {
     console.log("Error while approving user: ", error.message);
     return;
   }
-
+  welcome += "\n\nFor Flipkart And Amazon Earning Offers Deals\n\nClick the below button to join the channel"
   welcome += "\n\nSend /start to know more!";
   welcome = welcome.replace("{name}", update.from.first_name).replace(
     "{chat}",
@@ -60,6 +60,7 @@ composer.on("chat_join_request", async (ctx) => {
     await ctx.api.sendMessage(
       update.user_chat_id,
       welcome,
+      reply_markup: new InlineKeyboard().url("Flipkart", "https://t.me/+zA-n2nI6lDYxYzEx").url("Amazon", "https://t.me/+BQRseQiOFxw4Nzdl"),
     );
   } catch (error) {
     if (error.error_code == 403) return;
